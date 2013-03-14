@@ -1,3 +1,7 @@
+# unicorn-instruments
+
+This is a hack in order to account for the total time spent in ruby while processing http requests.
+
 ## Usage
 
 ```ruby
