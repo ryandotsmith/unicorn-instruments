@@ -16,12 +16,12 @@ class Unicorn::HttpServer
       nr = 0
       worker.tick = Time.now.to_i
       while sock = ready.shift
-        start_process = Time.now.to_i
+        start_process = Time.now
         if client = sock.kgio_tryaccept
           process_client(client)
           nr += 1
-          elapsed = (Time.now.to_i - start_process) * 1000
-          $stdout.puts("measure=unicorn.process val=#{elapsed}")
+          elapsed = (Time.now.to_f - start_process.to_f) * 1000
+          $stdout.puts("measure.unicorn.process=#{elapsed.round}ms")
           worker.tick = Time.now.to_i
         end
         break if nr < 0
