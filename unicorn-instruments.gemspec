@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.name          = 'unicorn-instruments'
   s.email         = 'ryan@heroku.com'
-  s.version       = '0.0.3'
+  s.version       = '0.0.4'
   s.date          = '2013-03-14'
   s.description   = 'Prints ruby processing time to stdout.'
   s.summary       = 'Monkey patch to unicorn to instruments methods.'

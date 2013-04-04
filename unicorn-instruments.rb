@@ -21,7 +21,8 @@ class Unicorn::HttpServer
           process_client(client)
           nr += 1
           elapsed = (Time.now.to_f - start_process.to_f) * 1000
-          $stdout.puts("measure.unicorn.process=#{elapsed.round}ms")
+          reqid = request.env['HTTP_HEROKU_REQUEST_ID']
+          $stdout.puts("request-id=#{reqid} measure.unicorn.process=#{elapsed.round}ms")
           worker.tick = Time.now.to_i
         end
         break if nr < 0
